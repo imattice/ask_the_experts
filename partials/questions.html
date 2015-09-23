@@ -1,3 +1,16 @@
+<!-- search bar -->
+    <div class='row' id='search_bar' ng-show='questions.length'>
+        <div class='col-md-12'>
+            <form ng-model='search' role='form'>
+                <div class='form-group'>
+                    <input ng-model='search' type='text' class='form-control' placeholder='Search'>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+<!-- title -->
 <h1>Ask the Experts!</h1>
 
 
@@ -15,9 +28,10 @@
 
 <!-- list of all questions -->
     <div ng-show='questions.length'>
-        <h3>Top questions</h3>
+        <h3 ng-show="questions.length && !filtered.length"> No matches found!</h3>
+        <h3 ng-hide="questions.length && !filtered.length">Top questions</h3>
         <ul>
-            <li ng-repeat='item in questions'>
+            <li ng-repeat='item in filtered = (questions | filter:search)'>
                 <a ui-sref='specificQuestion({ questionId: item.id })'>{{ item.question_key }}</a>
             </li>
         <ul>
