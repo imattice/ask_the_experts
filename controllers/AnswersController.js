@@ -4,4 +4,6 @@ askTheExperts.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParam
         $scope.question.answers.push({ answer: $scope.answer });
         $scope.answer = null;
     }
+    console.log($scope.question);
+    $scope.word = {name: "john"}
 })

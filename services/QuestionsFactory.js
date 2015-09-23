@@ -8,3 +8,16 @@ askTheExperts.factory('QuestionsFactory', function QuestionsFactory() {
 
     return factory;
 });
+
+//
+// factory object {
+//     questions array [
+//         question object {
+//             user_question: 'What',
+//             id: 1,
+//             answers: []
+//             },
+//         question object {'HOw', 2, []},
+//         question object {'Why', 3, []}
+//     ]
+// }
