@@ -9,22 +9,25 @@
         </div>
     </div>
 
-    <input type="checkbox" ng-model="filter" ngTrueValue="filterAnswered" ngFalseValue=""/> <span id="unansweredFilter">See all unanswered questions</span></p>
 
 <!-- title -->
-<h1>Ask the Experts!
-<img id='monkey' src='../css/Monkey.jpeg'>
-</h1>
+<div id= 'title'>
+    <h1 >Ask the Experts!
+        <img class="animated infinite pulse" id='monkey' src='../css/Monkey.jpeg'>
+    </h1>
+</div>
 
 <!-- form for adding a new question -->
-    <div class='col-md-4'>
-        <h3>Submit a new question!</h3>
-        <form ng-submit='QuestionsFactory.addQuestion()' class='form-inline' role='form'>
-            <div class='form-group'>
-                <input type='text' ng-model='QuestionsFactory.user_question' class='form-control' placeholder='Ask your question' autofocus required>
-            </div>
-            <button type='submit' class='btn btn-default'>Ask!</button>
-        </form>
+    <div class="question_form">
+        <div class='col-md-4'>
+            <h3 class="animated infinite bounce">Submit a new question!</h3>
+            <form ng-submit='QuestionsFactory.addQuestion()' class='form-inline' role='form'>
+                <div class='form-group'>
+                    <input type='text' ng-model='QuestionsFactory.user_question' class='form-control' placeholder='Ask your question' autofocus required>
+                </div>
+                <button type='submit' class='btn btn-default'>Ask!</button>
+            </form>
+        </div>
     </div>
 
 
@@ -32,12 +35,26 @@
     <div ng-show='questions.length'>
         <h3 ng-show="questions.length && !filtered.length"> No matches found!</h3>
         <h3 ng-hide="questions.length && !filtered.length">Top questions </h3>
+        <div id="answered" class="col-md-6">
+            <ul>
+                <li ng-repeat='item in filtered = (questions | filter:filterAnswered)'>
+                    <a ui-sref='specificQuestion({ questionId: item.id })'>{{ item.question_key }}</a>
+                </li>
+            </ul>
+        </div>
 
-        <ul>
-            <li ng-repeat='item in filtered = (questions | filter:search | filter)'>
-                <a ui-sref='specificQuestion({ questionId: item.id })'>{{ item.question_key }}</a>
-            </li>
-        <ul>
+        <div id="unanswered"class="col-md-6">
+            <ul>
+                <li ng-repeat='item in filtered = (questions | filter:search)'>
+                    <a ui-sref='specificQuestion({ questionId: item.id })'>{{ item.question_key }}</a>
+                </li>
+            </ul>
+        </div>
     </div>
 
 <div ui-view> </div>
+
+
+
+<!-- checkbox difficult to get working with angular.  function to apply filter in QuestionsController.  Just need to apply that function when the checkbox is checked -->
+    <!-- <input type="checkbox" ng-model="filter" ngTrueValue="filterAnswered" ngFalseValue=""/> <span id="unansweredFilter">See all unanswered questions</span></p> -->

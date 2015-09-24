@@ -2,8 +2,10 @@
     position: static;
     display: inline;
     border-radius:100%;
-    height: 50px;
-    width: 50px;
+    max-height: 100%;
+    width: auto;
+    float: right;
+    border: black 2px solid;
 }
 
 #banana_button{
@@ -15,3 +17,65 @@
     height:50px;
     width: 50px;
 }
+
+h1 {
+    max-height: 100%;
+    width: auto;
+    font-family: 'Bree Serif', serif;
+    padding-bottom: 20%;
+    font-size: 400%;
+    }
+
+.question_form {
+    box-shadow: 2px 2px;
+    background-color: rgba(213, 223, 229, .5);
+    border: solid black 1px;
+    border-radius: 15px;
+    padding-bottom: 5%;
+    margin-top: 5%;
+
+
+}
+
+h3 {
+    font-family: 'Bree Serif', serif;
+    }
+
+body{
+    background-color: #3B694E;
+    color: #2a2d25;
+    font-family: 'Happy Monkey', cursive;
+}
+
+ul {
+    list-style: none;
+}
+
+li > a {
+    text-decoration: none;
+    font-size: 150%;
+    color: #7C7C7C;
+    font-family: 'Happy Monkey', cursive;
+}
+
+#unanswered {
+    float: left;
+}
+
+#answered {
+    float: right;
+}
+
+#title{
+    background-color: #
+}
+
+#new_question{
+
+}
+
+#top_questions{
+
+}
+
+/*https://coolors.co/ for color schemes*/
