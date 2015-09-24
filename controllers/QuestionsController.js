@@ -5,4 +5,8 @@ askTheExperts.controller('QuestionsCtrl', function QuestionsCtrl($scope, Questio
     $scope.filterAnswered = function(question) {
         return question.answers.length === 0;
     };
+
+    $scope.filterUnanswered = function(question) {
+        return question.answers.length >= 1;
+    };
 });

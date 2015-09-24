@@ -34,10 +34,10 @@
 <!-- list of all questions -->
     <div ng-show='questions.length'>
         <h3 ng-show="questions.length && !filtered.length"> No matches found!</h3>
-        <h3 ng-hide="questions.length && !filtered.length">Top questions </h3>
         <div id="answered" class="col-md-6">
             <ul>
-                <li ng-repeat='item in filtered = (questions | filter:filterAnswered)'>
+                <h3 ng-hide="questions.length && !filtered.length">Monkey Stumpers </h3>
+                <li ng-repeat='item in filtered = (questions | filter:search | filter:filterAnswered)'>
                     <a ui-sref='specificQuestion({ questionId: item.id })'>{{ item.question_key }}</a>
                 </li>
             </ul>
@@ -45,7 +45,8 @@
 
         <div id="unanswered"class="col-md-6">
             <ul>
-                <li ng-repeat='item in filtered = (questions | filter:search)'>
+                <h3 ng-hide="questions.length && !filtered.length">Answered Questions</h3>
+                <li ng-repeat='item in filtered = (questions | filter:search | filter:filterUnanswered)'>
                     <a ui-sref='specificQuestion({ questionId: item.id })'>{{ item.question_key }}</a>
                 </li>
             </ul>

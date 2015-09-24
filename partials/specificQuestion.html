@@ -5,17 +5,20 @@
 <!-- list all answers -->
     <ul>
         <li ng-repeat='answer in question.answers'>
-            {{ answer.answer_key }}
-<!-- rating selection -->
-            <form>
-                <input type="radio"/ name="rating" value="helpful">Helpful
-                <input type="radio" name="rating" value="nothelpful">Not helpful
-            </form>
-<!-- upvote -->
-            <button ng-click= 'answer.vote_value = answer.vote_value + 1' type="button"  value="banana"><img id = "banana_button" src="../css/banana.jpeg"></button>
-            {{ answer.vote_value }} 
-            <button ng-click= 'answer.vote_value = answer.vote_value - 1' type="button" value="poo"><img id = "poo_button" src="../css/poo-50.png"></button>
-
+            <div class='answer'>
+                <h3>{{ answer.answer_key }}</h3>
+    <!-- rating selection -->
+                <form>
+                    <input type="radio"/ name="rating" value="helpful">Helpful
+                    <input type="radio" name="rating" value="nothelpful">Not helpful
+                </form>
+    <!-- upvote -->
+                <div class='upvote_button_group'>
+                    <button ng-click= 'answer.vote_value = answer.vote_value + 1' type="button"  value="banana"><img id = "banana_button" src="../css/banana.jpeg"></button>
+                        <h4>{{ answer.vote_value }}</h4>
+                    <button ng-click= 'answer.vote_value = answer.vote_value - 1' type="button" value="poo"><img id = "poo_button" src="../css/poo-50.png"></button>
+                </div>
+            </div>
         </li>
     </ul>
 
@@ -30,6 +33,3 @@
             <button type='submit' class='btn btn-default'>Answer!</button>
         </form>
     </div>
-
-
-upvotes as bananas
