@@ -5,4 +5,8 @@ askTheExperts.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParam
         $scope.user_answer = null;
         console.log($scope.question.answers);
     }
+
+    $scope.rate = function() {
+        $scope.question.answers.push({ rating_key: $scope.rating})
+    }
 })

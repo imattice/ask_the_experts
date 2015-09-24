@@ -5,7 +5,11 @@
 <!-- list all answers -->
     <ul>
         <li ng-repeat='answer in question.answers'>
-            {{ answer.answer_key }}
+            {{ answer.answer_key }} {{ answer.rating_key }}
+            <form>
+                <input type="radio"/ name="rating" value="helpful">Helpful
+                <input type="radio" name="rating" value="nothelpful">Not helpful
+            </form>
         </li>
     </ul>
 

@@ -9,9 +9,10 @@
         </div>
     </div>
 
+    <input type="checkbox" ng-model="filter" ngTrueValue="filterAnswered" ngFalseValue=""/> <span id="unansweredFilter">See all unanswered questions</span></p>
 
 <!-- title -->
-<h1>Ask the Experts!  
+<h1>Ask the Experts!
 <img id='monkey' src='../css/Monkey.jpeg'>
 </h1>
 
@@ -30,9 +31,10 @@
 <!-- list of all questions -->
     <div ng-show='questions.length'>
         <h3 ng-show="questions.length && !filtered.length"> No matches found!</h3>
-        <h3 ng-hide="questions.length && !filtered.length">Top questions</h3>
+        <h3 ng-hide="questions.length && !filtered.length">Top questions </h3>
+
         <ul>
-            <li ng-repeat='item in filtered = (questions | filter:search)'>
+            <li ng-repeat='item in filtered = (questions | filter:search | filter)'>
                 <a ui-sref='specificQuestion({ questionId: item.id })'>{{ item.question_key }}</a>
             </li>
         <ul>
