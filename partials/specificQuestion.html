@@ -5,14 +5,17 @@
 <!-- list all answers -->
     <ul>
         <li ng-repeat='answer in question.answers'>
-            {{ answer.answer_key }} {{ answer.rating_key }}
+            {{ answer.answer_key }}
+<!-- rating selection -->
             <form>
                 <input type="radio"/ name="rating" value="helpful">Helpful
                 <input type="radio" name="rating" value="nothelpful">Not helpful
             </form>
-            <button type="submit" value="banana"><img src="../css/banana.jpeg"></button>
-            {{ answer.vote_key }}
-            <button type="submit" value="poo"><img src="../css/poo-50.png"></button>
+<!-- upvote -->
+            <button ng-click= 'answer.vote_value = answer.vote_value + 1' type="button"  value="banana"><img id = "banana_button" src="../css/banana.jpeg"></button>
+            {{ answer.vote_value }} 
+            <button ng-click= 'answer.vote_value = answer.vote_value - 1' type="button" value="poo"><img id = "poo_button" src="../css/poo-50.png"></button>
+
         </li>
     </ul>
 
